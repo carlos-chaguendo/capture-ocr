@@ -10,6 +10,13 @@
 		2FBCCBB025E718900065A464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBAF25E718900065A464 /* AppDelegate.swift */; };
 		2FBCCBB225E718910065A464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCCBB125E718910065A464 /* Assets.xcassets */; };
 		2FBCCBB525E718910065A464 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCCBB325E718910065A464 /* MainMenu.xib */; };
+		2FBCCBBF25E718D20065A464 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBBE25E718D20065A464 /* StatusBar.swift */; };
+		2FBCCBC325E71BF30065A464 /* RecognizeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBC225E71BF30065A464 /* RecognizeText.swift */; };
+		2FBCCBC825E722CC0065A464 /* RecognizeBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBC625E722CC0065A464 /* RecognizeBoxViewController.swift */; };
+		2FBCCBC925E722CC0065A464 /* RecognizeBoxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCCBC725E722CC0065A464 /* RecognizeBoxViewController.xib */; };
+		2FBCCBCC25E7262F0065A464 /* ScreenCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBCB25E7262F0065A464 /* ScreenCapture.swift */; };
+		2FBCCBD025E726BB0065A464 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBCF25E726BB0065A464 /* NSMenuItem.swift */; };
+		2FBCCBD725E7356B0065A464 /* ImageCaptureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBCCBD625E7356B0065A464 /* ImageCaptureCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		2FBCCBB425E718910065A464 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2FBCCBB625E718910065A464 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FBCCBB725E718910065A464 /* CaptuOCR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaptuOCR.entitlements; sourceTree = "<group>"; };
+		2FBCCBBE25E718D20065A464 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		2FBCCBC225E71BF30065A464 /* RecognizeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeText.swift; sourceTree = "<group>"; };
+		2FBCCBC625E722CC0065A464 /* RecognizeBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizeBoxViewController.swift; sourceTree = "<group>"; };
+		2FBCCBC725E722CC0065A464 /* RecognizeBoxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecognizeBoxViewController.xib; sourceTree = "<group>"; };
+		2FBCCBCB25E7262F0065A464 /* ScreenCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCapture.swift; sourceTree = "<group>"; };
+		2FBCCBCF25E726BB0065A464 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
+		2FBCCBD625E7356B0065A464 /* ImageCaptureCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageCaptureCore.framework; path = System/Library/Frameworks/ImageCaptureCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBCCBD725E7356B0065A464 /* ImageCaptureCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +52,7 @@
 			children = (
 				2FBCCBAE25E718900065A464 /* CaptuOCR */,
 				2FBCCBAD25E718900065A464 /* Products */,
+				2FBCCBD525E7356B0065A464 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,11 +69,41 @@
 			children = (
 				2FBCCBAF25E718900065A464 /* AppDelegate.swift */,
 				2FBCCBB125E718910065A464 /* Assets.xcassets */,
-				2FBCCBB325E718910065A464 /* MainMenu.xib */,
-				2FBCCBB625E718910065A464 /* Info.plist */,
 				2FBCCBB725E718910065A464 /* CaptuOCR.entitlements */,
+				2FBCCBCE25E726B00065A464 /* Extension */,
+				2FBCCBB625E718910065A464 /* Info.plist */,
+				2FBCCBB325E718910065A464 /* MainMenu.xib */,
+				2FBCCBC125E71BE90065A464 /* OCR */,
+				2FBCCBBE25E718D20065A464 /* StatusBar.swift */,
 			);
 			path = CaptuOCR;
+			sourceTree = "<group>";
+		};
+		2FBCCBC125E71BE90065A464 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				2FBCCBC625E722CC0065A464 /* RecognizeBoxViewController.swift */,
+				2FBCCBC725E722CC0065A464 /* RecognizeBoxViewController.xib */,
+				2FBCCBC225E71BF30065A464 /* RecognizeText.swift */,
+				2FBCCBCB25E7262F0065A464 /* ScreenCapture.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		2FBCCBCE25E726B00065A464 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2FBCCBCF25E726BB0065A464 /* NSMenuItem.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2FBCCBD525E7356B0065A464 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FBCCBD625E7356B0065A464 /* ImageCaptureCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FBCCBB225E718910065A464 /* Assets.xcassets in Resources */,
+				2FBCCBC925E722CC0065A464 /* RecognizeBoxViewController.xib in Resources */,
 				2FBCCBB525E718910065A464 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,7 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBCCBC325E71BF30065A464 /* RecognizeText.swift in Sources */,
 				2FBCCBB025E718900065A464 /* AppDelegate.swift in Sources */,
+				2FBCCBC825E722CC0065A464 /* RecognizeBoxViewController.swift in Sources */,
+				2FBCCBCC25E7262F0065A464 /* ScreenCapture.swift in Sources */,
+				2FBCCBD025E726BB0065A464 /* NSMenuItem.swift in Sources */,
+				2FBCCBBF25E718D20065A464 /* StatusBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
