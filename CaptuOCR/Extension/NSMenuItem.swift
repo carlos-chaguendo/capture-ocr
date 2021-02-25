@@ -10,11 +10,15 @@ import AppKit
 
 extension NSMenuItem {
     
-    convenience init(title: String, target: AnyObject?, action: Selector, key: String? = nil) {
+    convenience init(title: String, target: AnyObject?, action: Selector, image: String? = nil, key: String? = nil) {
         self.init()
         self.title = title
         self.target = target
         self.action = action
+        
+        if let image = image {
+            self.image = NSImage(systemSymbolName: image, accessibilityDescription: title)
+        }
         
         if let hotKey = key {
             self.keyEquivalent = hotKey

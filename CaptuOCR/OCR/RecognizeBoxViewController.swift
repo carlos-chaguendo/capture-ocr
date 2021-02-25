@@ -18,13 +18,13 @@ class RecognizeBoxViewController: NSViewController {
     @IBOutlet var imgWidth: NSLayoutConstraint!
     
     
-    public var image: NSImage!
-    public var text: String!
+    public var image: NSImage?
+    public var text: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         imageArea.image = image
-        textArea.string = text
+        textArea.string = text ?? ""
     }
     
 }

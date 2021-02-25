@@ -13,6 +13,8 @@ class StatusBar {
     let menu = NSMenu()
     let popover = NSPopover()
     
+    let last = NSMenuItem()
+    
     init() {
         let icon = NSImage(named: NSImage.Name("icons8-text-16"))
         icon?.isTemplate = true
@@ -22,9 +24,12 @@ class StatusBar {
     }
     
     private func buildMenu() {
-        menu.addItem(NSMenuItem(title: "Take Image", target: self, action: #selector(capturePic4Txt), key: "c"))
-        menu.addItem(NSMenuItem(title: "Select Image", target: self, action: #selector(selectPic4Txt)))
+        menu.addItem(NSMenuItem(title: "Take Image", target: self, action: #selector(capturePic4Txt), image: "qrcode.viewfinder", key: "c"))
+        menu.addItem(NSMenuItem(title: "Select Image", target: self, action: #selector(selectPic4Txt), image: "photo"))
         menu.addItem(NSMenuItem.separator())
+        
+        last.title = "last"
+        menu.addItem(last)
     }
     
     /// Abre el selector de archivos para optener una imagen
