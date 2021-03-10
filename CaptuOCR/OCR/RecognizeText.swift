@@ -9,6 +9,14 @@ import Foundation
 import Vision
 import AppKit
 
+extension FloatingPoint {
+    /// Rounds the double to decimal places value
+    public func rounded(toPlaces places: Int) -> Self {
+        let divisor = Self(Int(pow(10.0, Double(places))))
+        return (self * divisor).rounded() / divisor
+    }
+}
+
 class RecognizeText {
     
     typealias Handler =  (Result<String, Error>) -> Void
@@ -30,7 +38,7 @@ class RecognizeText {
                         }
 
                         observations.forEach {
-                            print("> ", [$0.bottomLeft, $0.topLeft])
+                            print("> ", $0.topLeft.x.rounded(toPlaces: 3) )
                         }
 
                         let recognizedText = observations
@@ -38,9 +46,17 @@ class RecognizeText {
                             .flatMap { $0 }
                             .map { $0.string }
                             .joined(separator: "\n")
+                        
+                        let recognizedText2 = observations
+                            .map { ($0.topLeft.x, $0.topCandidates(1)[0]) }
+                       
+                            .map { leftSpaced($0.0) + $0.1.string }
+                            .joined(separator: "\n")
+                        
+                        print("recognizedText2", recognizedText2)
 
                         DispatchQueue.main.async {
-                            completionHandler(.success(recognizedText))
+                            completionHandler(.success(recognizedText2))
                         }
      
                     }])
@@ -52,6 +68,13 @@ class RecognizeText {
             }
         }
     }
+    
+    class func leftSpaced(_ x: CGFloat) -> String {
+      let n = (x * 10 ).rounded(toPlaces: 4) * 10
+    
+       return "".padding(toLength: Int(n), withPad: " ", startingAt: 0)
+   }
+
 }
 
 extension NSImage {

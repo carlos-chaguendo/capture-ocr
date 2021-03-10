@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4668D525F2CAF1008B53D5 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4668D425F2CAF1008B53D5 /* HistoryView.swift */; };
+		2F4668DA25F2D093008B53D5 /* HistoryRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4668D925F2D093008B53D5 /* HistoryRecordView.swift */; };
+		2FAB127A25F29557009F83D7 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAB127925F29557009F83D7 /* Realm */; };
+		2FAB127C25F29557009F83D7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAB127B25F29557009F83D7 /* RealmSwift */; };
+		2FAB128125F2B392009F83D7 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB128025F2B392009F83D7 /* HistoryService.swift */; };
+		2FAB128425F2B3F7009F83D7 /* HistoryRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB128325F2B3F7009F83D7 /* HistoryRecord.swift */; };
 		2FBCCBB025E718900065A464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBCCBAF25E718900065A464 /* AppDelegate.swift */; };
 		2FBCCBB225E718910065A464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCCBB125E718910065A464 /* Assets.xcassets */; };
 		2FBCCBB525E718910065A464 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FBCCBB325E718910065A464 /* MainMenu.xib */; };
@@ -20,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4668D425F2CAF1008B53D5 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		2F4668D925F2D093008B53D5 /* HistoryRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecordView.swift; sourceTree = "<group>"; };
+		2FAB128025F2B392009F83D7 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
+		2FAB128325F2B3F7009F83D7 /* HistoryRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRecord.swift; sourceTree = "<group>"; };
 		2FBCCBAC25E718900065A464 /* CaptuOCR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaptuOCR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FBCCBAF25E718900065A464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FBCCBB125E718910065A464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAB127C25F29557009F83D7 /* RealmSwift in Frameworks */,
+				2FAB127A25F29557009F83D7 /* Realm in Frameworks */,
 				2FBCCBD725E7356B0065A464 /* ImageCaptureCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +59,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4668C625F2B9D9008B53D5 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				2F4668D425F2CAF1008B53D5 /* HistoryView.swift */,
+				2F4668D925F2D093008B53D5 /* HistoryRecordView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		2FAB127E25F2B37A009F83D7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB128025F2B392009F83D7 /* HistoryService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2FAB127F25F2B380009F83D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB128325F2B3F7009F83D7 /* HistoryRecord.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2FBCCBA325E718900065A464 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +104,9 @@
 		2FBCCBAE25E718900065A464 /* CaptuOCR */ = {
 			isa = PBXGroup;
 			children = (
+				2F4668C625F2B9D9008B53D5 /* History */,
+				2FAB127F25F2B380009F83D7 /* Model */,
+				2FAB127E25F2B37A009F83D7 /* Service */,
 				2FBCCBAF25E718900065A464 /* AppDelegate.swift */,
 				2FBCCBB125E718910065A464 /* Assets.xcassets */,
 				2FBCCBB725E718910065A464 /* CaptuOCR.entitlements */,
@@ -122,6 +162,10 @@
 			dependencies = (
 			);
 			name = CaptuOCR;
+			packageProductDependencies = (
+				2FAB127925F29557009F83D7 /* Realm */,
+				2FAB127B25F29557009F83D7 /* RealmSwift */,
+			);
 			productName = CaptuOCR;
 			productReference = 2FBCCBAC25E718900065A464 /* CaptuOCR.app */;
 			productType = "com.apple.product-type.application";
@@ -149,6 +193,9 @@
 				Base,
 			);
 			mainGroup = 2FBCCBA325E718900065A464;
+			packageReferences = (
+				2FAB127825F29557009F83D7 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 2FBCCBAD25E718900065A464 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,9 +223,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAB128125F2B392009F83D7 /* HistoryService.swift in Sources */,
 				2FBCCBC325E71BF30065A464 /* RecognizeText.swift in Sources */,
 				2FBCCBB025E718900065A464 /* AppDelegate.swift in Sources */,
+				2F4668D525F2CAF1008B53D5 /* HistoryView.swift in Sources */,
+				2F4668DA25F2D093008B53D5 /* HistoryRecordView.swift in Sources */,
 				2FBCCBC825E722CC0065A464 /* RecognizeBoxViewController.swift in Sources */,
+				2FAB128425F2B3F7009F83D7 /* HistoryRecord.swift in Sources */,
 				2FBCCBCC25E7262F0065A464 /* ScreenCapture.swift in Sources */,
 				2FBCCBD025E726BB0065A464 /* NSMenuItem.swift in Sources */,
 				2FBCCBBF25E718D20065A464 /* StatusBar.swift in Sources */,
@@ -378,6 +429,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FAB127825F29557009F83D7 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FAB127925F29557009F83D7 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAB127825F29557009F83D7 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		2FAB127B25F29557009F83D7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAB127825F29557009F83D7 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2FBCCBA425E718900065A464 /* Project object */;
 }
