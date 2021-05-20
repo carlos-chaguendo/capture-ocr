@@ -8,9 +8,9 @@
 import Foundation
 import Cocoa
 import RealmSwift
+import Realm
 
-
-class HistoryRecord: Object, Identifiable {
+class HistoryRecord: Object {
     
     @objc dynamic var id: String!
     @objc dynamic var date: Date!
@@ -18,10 +18,19 @@ class HistoryRecord: Object, Identifiable {
     @objc dynamic var imageBase64 = Data()
     
     required init() {
+        super.init()
         date = Date()
         id = date.description
         
         text = "loree a asdasda  "
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value,schema: schema)
     }
     
     public override class func primaryKey() -> String? {
@@ -36,11 +45,11 @@ class HistoryService {
     
     private static var configuration: Realm.Configuration = {
         
-       let url = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/app.realm")
+       let url = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/app.2.0.realm")
         
         return Realm.Configuration(fileURL: URL(fileURLWithPath: url),
                                    encryptionKey: nil,
-                                   schemaVersion: 17,
+                                   schemaVersion: 18,
                                    deleteRealmIfMigrationNeeded: true)
         
        
@@ -65,7 +74,7 @@ class HistoryService {
     }
     
     static func findAll() -> Array<HistoryRecord>{
-        Array(realm.objects(HistoryRecord.self))
+        Array(realm.objects(HistoryRecord.self).sorted(by: { $0.date < $1.date }))
     }
     
     static func remove(_ item: HistoryRecord) {
@@ -75,5 +84,9 @@ class HistoryService {
         }
     }
 
+    
+}
+
+extension HistoryRecord: Identifiable {
     
 }
